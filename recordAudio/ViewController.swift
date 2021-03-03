@@ -6,14 +6,35 @@
 //
 
 import UIKit
+import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AVAudioRecorderDelegate {
+    
+//    var recordHelper: RecordHelper?
+    let recordHelper = {
+        return RecordHelper()
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+//        recordHelper = RecordHelper() //產生RecordHelper實體
     }
 
-
+    @IBAction func recordAudio(_ sender: UIButton) {
+        recordHelper.recordAudio()
+    }
+    
+    @IBAction func stopRecording(_ sender: UIButton) {
+        recordHelper.stopRecording()
+    }
+    
+    @IBAction func playRecordedSound(_ sender: UIButton) {
+        recordHelper.playRecordedSound()
+    }
+    
+    @IBAction func stopPlaying(_ sender: UIButton) {
+        recordHelper.stopPlaying()
+    }
+    
 }
 
